@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserDto> getllUsers() {
+	public List<UserDto> getAllUsers() {
 		// TODO Auto-generated method stub
 		
 		List<User> users = this.userRepo.findAll();
@@ -75,7 +75,7 @@ public class UserServiceImpl implements UserService {
 		User user = new User();
 		user.setId(userDto.getId());
 		user.setName(userDto.getName());
-		user.setEmail(userDto.getName());
+		user.setEmail(userDto.getEmail());
 		user.setAbout(userDto.getAbout());
 		user.setPassword(userDto.getPassword());
 		return user;
@@ -86,8 +86,8 @@ public class UserServiceImpl implements UserService {
 		UserDto userDto = new UserDto();
 		userDto.setId(user.getId());
 		userDto.setName(user.getName()); 
-		userDto.setEmail(user.getName());
-		userDto.setAbout(user.getName());
+		userDto.setEmail(user.getEmail());
+		userDto.setAbout(user.getAbout());
 		userDto.setPassword(user.getPassword());
 		
 		return userDto;
