@@ -19,6 +19,8 @@ import com.nachiket.blog.payloads.ApiResponse;
 import com.nachiket.blog.payloads.UserDto;
 import com.nachiket.blog.services.*;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -27,7 +29,7 @@ public class UserController {
 	
 	//POST - create user
 	@PostMapping("/")
-	public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto){
+	public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto){
 		UserDto createUserDto = this.userService.craeteUser(userDto);
 		return  new ResponseEntity<>(createUserDto,HttpStatus.CREATED);
 		
