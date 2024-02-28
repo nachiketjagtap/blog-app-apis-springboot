@@ -1,4 +1,5 @@
 package com.nachiket.blog.payloads;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 
@@ -7,7 +8,11 @@ import lombok.*;
 @Setter
 public class CategoryDto {
 	private Integer categoryId;
+	@NotBlank
+	@Size(min=4,message="Minimum length is 4")
 	private String categoryTitle;
+	@NotBlank
+	@Size(min=4,message="Minimum length is 4")
 	private String categoryDescription;
 
 }

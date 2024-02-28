@@ -1,6 +1,7 @@
 package com.nachiket.blog.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.*;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -9,27 +10,27 @@ import com.nachiket.blog.payloads.ApiResponse;
 import com.nachiket.blog.payloads.CategoryDto;
 import com.nachiket.blog.services.CategoryService;
 
+import jakarta.validation.Valid;
+
 @RestController
-@RequestMapping("/apis/categories")
+@RequestMapping("/api/categories")
 public class CategoryController {
+	
 	@Autowired
+	
 	private CategoryService categoryService;
 	
 	//create
 	@PostMapping("/")
-	public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categoryDto){
+	public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto){
 		CategoryDto createCategory = this.categoryService.createCategory(categoryDto);
 		return new ResponseEntity<CategoryDto>(createCategory,HttpStatus.CREATED);
-		
-		
-		
-		
 	}
 	
 	
 	//update
 	@PutMapping("/{catId}")
-	public ResponseEntity<CategoryDto> updateCategory(@RequestBody CategoryDto categoryDto,@PathVariable Integer catId){
+	public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categoryDto,@PathVariable Integer catId){
 		CategoryDto updatedCategory = this.categoryService.updateCategory(categoryDto,catId);
 		return new ResponseEntity<CategoryDto>(updatedCategory,HttpStatus.OK);
 	}

@@ -5,13 +5,14 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.nachiket.blog.entities.Category;
 import com.nachiket.blog.exceptions.ResourceNotFoundException;
 import com.nachiket.blog.payloads.CategoryDto;
 import com.nachiket.blog.repositories.CategoryRepo;
 import com.nachiket.blog.services.CategoryService;
-
+@Service
 public class CategoryServiceImpl implements CategoryService {
 	
 	
