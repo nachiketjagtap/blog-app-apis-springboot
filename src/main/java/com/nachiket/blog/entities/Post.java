@@ -1,10 +1,15 @@
 package com.nachiket.blog.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
+
 import java.util.*;
 
 @Entity
 @Table(name="posts")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Post {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
