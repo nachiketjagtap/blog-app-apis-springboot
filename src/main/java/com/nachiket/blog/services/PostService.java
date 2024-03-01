@@ -30,12 +30,12 @@ public interface PostService {
 	
 	// get all post by category
 	
-	List<Post> getPostsByCategory(Integer categoryId);
+	List<PostDto> getPostsByCategory(Integer categoryId);
 	
 	
 	//get all post by user
 	
-	List<Post> getPostsByUser(Integer userId);
+	List<PostDto> getPostsByUser(Integer userId);
 	
 	
 	//search pst by keyword
