@@ -12,7 +12,7 @@ public interface PostService {
 	
 	//update
 	
-	Post updatePost(Integer postId);
+	PostDto updatePost(PostDto postDto, Integer postId);
 	
 	
 	//delete
