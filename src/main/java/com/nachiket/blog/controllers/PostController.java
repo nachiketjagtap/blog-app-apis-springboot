@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nachiket.blog.payloads.ApiResponse;
 import com.nachiket.blog.payloads.PostDto;
+import com.nachiket.blog.payloads.PostResponse;
 import com.nachiket.blog.services.PostService;
 
 @RestController
@@ -58,12 +59,12 @@ public class PostController {
 	
 	//get all posts
 	@GetMapping("/posts")
-	public ResponseEntity<List<PostDto>> getAllPosts(
-			@RequestParam (value="pageNumber",defaultValue="1",required=false)Integer pageNumber,
-			@RequestParam (value="pageSize",defaultValue="5",required=false)Integer pageSize
+	public ResponseEntity<PostResponse>  getAllPosts(
+			@RequestParam (value="pageNumber",defaultValue="0",required=false)Integer pageNumber,
+			@RequestParam (value="pageSize",defaultValue="10",required=false)Integer pageSize
 			){
-		List<PostDto> allPosts = this.postService.getAllPost(pageNumber,pageSize);
-		return new ResponseEntity<List<PostDto>>(allPosts,HttpStatus.OK);
+		PostResponse postResponse=this.postService.getAllPost(pageNumber,pageSize);
+		return new ResponseEntity<PostResponse>(postResponse,HttpStatus.OK);
 	}
 	
 	

@@ -2,6 +2,7 @@ package com.nachiket.blog.services;
 
 import com.nachiket.blog.entities.Post;
 import com.nachiket.blog.payloads.PostDto;
+import com.nachiket.blog.payloads.PostResponse;
 
 import java.util.*;
 
@@ -21,7 +22,7 @@ public interface PostService {
 	
 	//get all posts
 	
-	List<PostDto> getAllPost(Integer pageNumber, Integer pageSize);
+	PostResponse getAllPost(Integer pageNumber, Integer pageSize);
 	
 	//get post
 	
