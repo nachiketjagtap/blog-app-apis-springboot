@@ -41,7 +41,7 @@ public interface PostService {
 	
 	//search pst by keyword
 	
-	List<Post> seacrhPosts(String keyword);
+	List<PostDto> seacrhPosts(String keywords);
 	
 	
 }
