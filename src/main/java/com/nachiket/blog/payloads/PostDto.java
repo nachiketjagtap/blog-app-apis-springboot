@@ -1,8 +1,10 @@
 package com.nachiket.blog.payloads;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
-
+import com.nachiket.blog.entities.Comment;
 
 import lombok.*;
 @Getter
@@ -16,6 +18,6 @@ public class PostDto {
 	private Date addedDate;
 	private CategoryDto category;
 	private UserDto user;
-	
+	private Set <CommentDto> comments = new HashSet<>();
 	
 }
