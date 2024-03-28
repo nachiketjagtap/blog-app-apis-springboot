@@ -1,11 +1,8 @@
 package com.nachiket.blog.entities;
 
-import jakarta.persistence.Entity;
+import javax.persistence.*;
 
 import java.util.*;
-
-import jakarta.persistence.*;
-import jakarta.persistence.Table;
 import lombok.*;
 
 @Entity

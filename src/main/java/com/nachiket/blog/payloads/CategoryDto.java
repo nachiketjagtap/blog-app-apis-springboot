@@ -1,5 +1,5 @@
 package com.nachiket.blog.payloads;
-import jakarta.validation.constraints.*;
+import javax.validation.constraints.*;
 import lombok.*;
 
 

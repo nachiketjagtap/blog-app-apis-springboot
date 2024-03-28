@@ -10,7 +10,7 @@ import com.nachiket.blog.payloads.ApiResponse;
 import com.nachiket.blog.payloads.CategoryDto;
 import com.nachiket.blog.services.CategoryService;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/categories")
@@ -30,7 +30,7 @@ public class CategoryController {
 	
 	//update
 	@PutMapping("/{catId}")
-	public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categoryDto,@PathVariable Integer catId){
+	public ResponseEntity<CategoryDto> updateCategory(@javax.validation.Valid @RequestBody CategoryDto categoryDto,@PathVariable Integer catId){
 		CategoryDto updatedCategory = this.categoryService.updateCategory(categoryDto,catId);
 		return new ResponseEntity<CategoryDto>(updatedCategory,HttpStatus.OK);
 	}

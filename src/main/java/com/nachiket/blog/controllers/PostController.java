@@ -27,7 +27,7 @@ import com.nachiket.blog.payloads.PostResponse;
 import com.nachiket.blog.services.FileService;
 import com.nachiket.blog.services.PostService;
 
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponse;
 
 
 

@@ -19,7 +19,7 @@ import com.nachiket.blog.payloads.ApiResponse;
 import com.nachiket.blog.payloads.UserDto;
 import com.nachiket.blog.services.*;
 
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/users")

@@ -1,6 +1,6 @@
 package com.nachiket.blog.entities;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 import java.util.*;
