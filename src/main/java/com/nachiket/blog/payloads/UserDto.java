@@ -1,6 +1,11 @@
 package com.nachiket.blog.payloads;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.validation.constraints.*;
+
+import com.nachiket.blog.entities.Role;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,5 +27,9 @@ public class UserDto {
 	private String password;
 	@NotEmpty
 	private String about;
+	
+	
+	private Set<RoleDto> roles = new HashSet<>();
+
 
 }

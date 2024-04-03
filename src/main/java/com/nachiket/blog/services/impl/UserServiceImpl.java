@@ -7,10 +7,13 @@ import com.nachiket.blog.exceptions.*;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.nachiket.blog.entities.Role;
 import com.nachiket.blog.entities.User;
 import com.nachiket.blog.payloads.UserDto;
+import com.nachiket.blog.repositories.RoleRepo;
 import com.nachiket.blog.repositories.UserRepo;
 import com.nachiket.blog.services.UserService;
 @Service
@@ -20,6 +23,14 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private ModelMapper modelMapper;
+	
+	@Autowired
+	private RoleRepo roleRepo;
+	 
+	
+	@Autowired
+	private  PasswordEncoder passwordEncoder;
+	
 
 	@Override
 	public UserDto craeteUser(UserDto userDto) {
@@ -98,6 +109,21 @@ public class UserServiceImpl implements UserService {
 		
 		return userDto;
 		
+	}
+
+	@Override
+	public UserDto registerNewUser(UserDto userDto) {
+		
+		User user = modelMapper.map(userDto, User.class);
+		
+		//encoded password
+		user.setPassword(this.passwordEncoder.encode(user.getPassword()));
+		//role
+		Role role   = this.roleRepo.findById(2).get();
+		user.getRoles().add(role);
+		User  newUser  = this.userRepo.save(user);
+		
+		return this.modelMapper.map(newUser, UserDto.class);
 	}
 	
 

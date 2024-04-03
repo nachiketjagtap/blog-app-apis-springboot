@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nachiket.blog.exceptions.ApiException;
 import com.nachiket.blog.payloads.JwtAuthRequest;
 import com.nachiket.blog.payloads.JwtAuthResponse;
+import com.nachiket.blog.payloads.UserDto;
 import com.nachiket.blog.security.JwtTokenHelper;
+import com.nachiket.blog.services.UserService;
 
 @RestController
 @RequestMapping("/api/v1/auth/")
@@ -31,6 +33,9 @@ public class AuthControllers {
 	
 	@Autowired
 	private AuthenticationManager  authenticationManager;
+	
+	@Autowired
+	private UserService userService;
 	
 	@PostMapping("/login")
 	public ResponseEntity<JwtAuthResponse>createToken(
@@ -60,5 +65,13 @@ public class AuthControllers {
 			throw new ApiException ("Invalid Username or password..!");  
 		}
 	}
+	//register new user api
+	@PostMapping("/register")
+	 public ResponseEntity<UserDto> registerUser(@RequestBody UserDto userDto){
+		UserDto registeredUser  = this.userService.registerNewUser(userDto);
+		
+		return new ResponseEntity<UserDto>(registeredUser,HttpStatus.CREATED );
+		 
+	 }
 
 }
